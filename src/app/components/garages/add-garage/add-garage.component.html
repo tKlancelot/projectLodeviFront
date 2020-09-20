@@ -1,0 +1,33 @@
+<app-menu-garage-owner></app-menu-garage-owner>
+<div class="border bg-light text-secondary container col-10 p-0 mt-4">
+<h5 class="text-uppercase text-light text-center bg-secondary m-0 p-0">ajouter un garage</h5>
+<form class="d-flex p-2" (submit)="submitGarage()" #garageForm ="ngForm">
+    <div class="form-group col">
+        <label for="garageName">nom du garage</label>
+        <input class='form-control' type="text" name="garageName" #garageForm='ngModel' required [(ngModel)]='garage.garageName'>
+        <!-- <div *ngIf='!garageForm.valid' class="error"><span>merci de saisir un nom de garage valide !</span></div> -->
+
+        <label for="garageAdress">adresse du garage</label>
+        <input class='form-control' type="text" name="garageAdress" #garageForm='ngModel' required [(ngModel)]='garage.garageAdress'>
+        
+        <label for="postalCode">code postal</label>
+        <input class='form-control col-2' type="text" maxlength="5" name="postalCode" #garageForm='ngModel' required [(ngModel)]='garage.postalCode'>
+
+
+        <label for="siretNumber">n° de siret</label>
+        <input class='form-control col-4' type="text" maxlength="14" name="siretNumber" #garageForm='ngModel' required [(ngModel)]='garage.siretNumber'>
+
+        <label for="user">utilisateur</label>
+        <select class="custom-select" name="user" id="brand" required #garageForm ="ngModel" [(ngModel)]="garage.user">
+            <option *ngFor="let item of userList" [value]="item.id">{{item.username}}</option>
+        </select>
+
+        <!-- <label class="text-white" for="user"></label>
+        <input class='form-control col-4' type="text" name="user" #garageForm='ngModel' required [(ngModel)]='garage.user.username'> -->
+        
+        <div *ngIf='!garageForm.valid' class="text-danger"><span>merci de remplir tous les champs ci-dessus</span></div>
+
+        <input class="mt-2"type="submit" value="ajouter" [disabled]='!garageForm.valid'>
+    </div>
+</form>
+</div>

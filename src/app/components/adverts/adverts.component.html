@@ -1,0 +1,43 @@
+<ng-container *ngIf="!isLoading">
+    <app-menu-admin></app-menu-admin>
+    <div class="rounded">
+        <h5 class='bg-secondary text-light text-uppercase text-center m-0 p-1'>all adverts</h5>
+        <table class="table text-uppercase">
+        <thead>
+            <tr>
+                <th>référence</th>
+                <th>description</th>
+                <th>type d'essence</th>
+                <th>kilométrage</th>
+                <th>prix</th>
+                <th>picture</th>
+                <th>date post</th>
+                <th>année sortie</th>
+                <th>modèle</th><!-- (relationNiv1) -->
+                <th>marque</th><!-- (relationNiv1.relationNiv2) -->
+                <th>garage</th><!-- (relationNiv1) -->
+                <th>utilisateur</th><!--(relationNiv1.relationNiv2)-->
+            </tr>
+        </thead>
+        <tbody class="bg-light" *ngFor="let item of adverts">
+        <tr>
+            <td>{{ item.reference }}</td>
+            <td class='col-2'>{{ item.description }}</td>
+            <td>{{ item.fuelType }}</td>
+            <td>{{ item.mileage }}</td>
+            <td>{{ item.price }}</td>
+            <td class='col-1'><img width='20%' src="../../../assets/{{ item.picture }}" alt=""></td>
+            <td>{{ item.publicationDate | date }}</td>
+            <td>{{ item.releaseYear | date }}</td>
+            <td class="border bg-primary text-white">{{ item.carModel.modelName }}</td>
+            <td class="border bg-danger text-white">{{ item.carModel.brand.brandLabel}}</td>
+            <td class="border bg-warning text-white">{{ item.garage.garageName }}</td>
+            <td class="border bg-info text-white">{{ item.garage.user.username }}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <h4>Chargement en cours</h4>
+</ng-container>

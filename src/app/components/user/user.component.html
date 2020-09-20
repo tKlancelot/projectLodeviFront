@@ -1,0 +1,27 @@
+<ng-container *ngIf="!isLoading">
+    <app-menu-admin></app-menu-admin>
+    <div class="">
+        <h5 class='bg-secondary text-light text-uppercase text-center m-0 p-1'>all users</h5>
+        <table class="table text-uppercase">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>username</th>
+                <th>roles</th>
+                <th>password</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of users">
+            <td>{{ item.id }}</td>
+            <td>{{ item.username }}</td>
+            <td>{{ item.roles }}</td>
+            <td>{{ item.password }}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <h4>Chargement en cours</h4>
+</ng-container>

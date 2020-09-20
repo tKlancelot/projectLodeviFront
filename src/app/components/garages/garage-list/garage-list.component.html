@@ -1,0 +1,33 @@
+<ng-container *ngIf="!isLoading">
+    <app-menu-admin></app-menu-admin>
+    <div>
+        <h5 class="bg-secondary text-light text-uppercase text-center m-0 p-1">all garages : <b class="text-warning">{{garages.length }}</b></h5>
+        <table class="table text-uppercase">
+            <thead>
+                <tr>
+                    <th>id garage</th>
+                    <th>nom du garage</th>
+                    <th>adresse du garage</th>
+                    <th>code postal</th>
+                    <th>n° de siret</th>
+                    <th>username</th>
+                    <th>rôle</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of garages">
+                <td>{{ item.id }}</td>
+                <td>{{ item.garageName }}</td>
+                <td>{{ item.garageAdress }}</td>
+                <td>{{ item.postalCode }}</td>
+                <td>{{ item.siretNumber }}</td>
+                <td class="bg-primary">{{ item.user.username }}</td>
+                <td class="bg-primary">{{ item.user.roles }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <h4>Chargement en cours</h4>
+</ng-container>

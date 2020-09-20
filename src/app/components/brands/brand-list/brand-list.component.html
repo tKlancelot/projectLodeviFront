@@ -1,0 +1,23 @@
+<ng-container *ngIf="!isLoading">
+    <app-menu-admin></app-menu-admin>
+    <div class="">
+        <h5 class='bg-secondary text-light text-uppercase text-center m-0 p-1'>all brands</h5>
+        <table class="table text-uppercase">
+        <thead>
+            <tr>
+                <th>brand id</th>
+                <th>brand label</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of brands">
+            <td class="col-1">{{ item.id }}</td>
+            <td>{{ item.brandLabel }}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <h4>Chargement en cours</h4>
+</ng-container>

@@ -1,0 +1,27 @@
+<ng-container *ngIf="!isLoading">
+    <app-menu-admin></app-menu-admin>
+    <div class="">
+        <h5 class='bg-secondary text-light text-uppercase text-center m-0 p-1'>all carModels</h5>
+        <table class="table text-uppercase">
+        <thead>
+            <tr>
+                <th>id model</th>
+                <th>modèles</th>
+                <th>marque</th>
+                <th>id brand</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of carModels">
+            <td>{{ item.id }}</td>
+            <td class="">{{ item.modelName }}</td>
+            <td>{{ item.brand.brandLabel }}</td>
+            <td>{{ item.brand.id }}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <h4>Chargement en cours</h4>
+</ng-container>

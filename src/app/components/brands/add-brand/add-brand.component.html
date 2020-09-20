@@ -1,0 +1,15 @@
+<app-menu-admin></app-menu-admin>
+<div class="bg-dark whiteSmoke">
+    <h5 class="text-uppercase text-light text-center bg-secondary m-0">ajouter une marque</h5>
+  
+    <form class="p-2 container col-4" (submit)="submitBrand()" #modelForm ="ngForm">
+        <div class="form-group">
+            <label for="brandLabel">nom de la marque</label>
+            <input class='form-control' type="text" name="brandLabel" #brandForm='ngModel' required [(ngModel)]='brand.brandLabel'>
+    
+            <div *ngIf='!brandForm.valid' class="error"><span>merci de saisir un nom de marque valide !</span></div>
+
+            <input class="mt-2"type="submit" value="ajouter" [disabled]='!brandForm.valid'>
+        </div>
+    </form>
+</div>  

@@ -1,0 +1,58 @@
+<div class="container card rounded p-0 mt-5" style="width:40rem;">
+    <div class="card-header text-center">
+        <h5 class="card-title">{{advert.carModel.brand.brandLabel}}  {{advert.carModel.modelName}}</h5>
+        <img style="width:29rem;height:17rem" class="card-img" src="../../../assets/{{advert.picture}}" alt="{{advert.picture}}">
+    </div>
+    <div class="card-body d-flex justify-content-between">
+        <div class="col border rounded p-2 mr-1">
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th colspan="2"><h6 class='text-center'>caractéristiques</h6></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>année</td>
+                        <td class="card-text">{{advert.releaseYear | date:'yyyy' }}</td>
+                    </tr>
+                    <tr>
+                        <td>kilométrage</td>
+                        <td class="card-text">{{advert.mileage}} km</td>
+                    </tr>
+                    <tr>
+                        <td>price</td>
+                        <td class="card-text">{{advert.price}} €</td>
+                    </tr>
+                    <tr>
+                        <td>date de post</td>
+                        <td class="card-text">{{advert.publicationDate | date}}</td>
+                    </tr>
+                    <tr>
+                        <td>référence</td>
+                        <td class="card-text">{{advert.reference}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-7 border rounded p-2">
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th><h6 class='text-center'>description</h6></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{advert.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="card-footer text-center">
+        <a class="btn btn-primary" routerLink='/visitor'><i class="fas fa-hand-point-left"></i><br>retour</a>
+    </div>
+
+  </div>

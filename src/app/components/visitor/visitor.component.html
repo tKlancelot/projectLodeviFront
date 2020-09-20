@@ -1,0 +1,65 @@
+<app-temp-menu></app-temp-menu>
+
+<ng-container *ngIf="!isLoading">
+    <h5 class="text-uppercase text-secondary text-center bg-dark m-0 jumbotron rounded-0">toutes les annonces</h5>
+    <div class="d-flex justify-content-around container col-10">
+
+        <div class="row col-12 justify-content-around">
+            <div class="card p-0 m-4" *ngFor='let item of adverts' style="width:25rem">
+                <div class="card-header text-center m-0 p-0">
+                  <h6 class='pt-2'>{{ item.carModel.brand.brandLabel}} {{ item.carModel.modelName }}</h6>
+                  <img style="width:100%;height:17rem"class="p-0" src="../../../assets/{{item.picture}}" alt="Card image cap">
+                </div>
+                <div class="card-body m-0 p-0">
+                    <table class="table">
+                        <tr>
+                            <th>référence</th>
+                            <td class="col-8">{{ item.reference}}</td>
+                        </tr>
+                        <tr>
+                            <th>garage</th>
+                            <td class="">{{ item.garage.garageName }}</td>
+                        </tr>
+                        <tr>
+                            <th>garagiste</th>
+                            <td class="text-danger">{{ item.garage.user.username }}</td>
+                        </tr>
+                        <!-- <tr>
+                            <th>description</th>
+                            <td class=''>{{ item.description }}</td>
+                        </tr>
+                        <tr>
+                            <th>type d'essence</th>
+                            <td>{{ item.fuelType }}</td>
+                        </tr>
+                        <tr>
+                            <th>kilométrage</th>
+                            <td>{{ item.mileage }} km</td>
+                        </tr>
+                        <tr>
+                            <th>prix</th>
+                            <td>{{ item.price }} €</td>
+                        </tr>
+                        <tr>
+                            <th>date de post</th>
+                            <td>{{ item.publicationDate | date }}</td>
+                        </tr>
+                        <tr>
+                            <th>date de sortie</th>
+                            <td>{{ item.releaseYear | date }}</td>
+                        </tr> -->
+                    </table>
+                </div>
+                <div class="card-footer p-2 text-center">
+                    <a class="bg-secondary p-2 rounded text-light" routerLink="/advertDetail/{{item.id}}">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-container>
+<ng-container *ngIf="isLoading">
+  <h4>Chargement en cours</h4>
+</ng-container>

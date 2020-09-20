@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+*{
+    font-family: 'ubuntu';
+}
+
+/* links */
+
+a{
+    font-weight: bolder;
+    font-size:0.8rem!important;
+}
+
+.navbar-brand{
+    font-weight: initial;
+}
+
+a:hover{
+    text-decoration:none!important;
+    color:white!important;
+} 
+
+
+table, ul, li, label, input, span, p{
+    font-size:0.9rem!important;
+    /* font-weight:bolder; */
+}
+
+/* span, p{
+    letter-spacing: 0.1rem;
+} */
+
+.whiteSmoke{
+    color:rgb(211, 211, 211)!important;
+}
+
+.error{
+    color: rgb(179, 255, 103);
+    /* font-weight: bolder; */
+}
