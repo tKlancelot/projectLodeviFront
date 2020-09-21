@@ -17,6 +17,7 @@ import { VisitorComponent } from './components/visitor/visitor.component';
 import { AddGarageComponent } from './components/garages/add-garage/add-garage.component';
 import { AddAdvertComponent } from './components/adverts/add-advert/add-advert.component';
 import { AdvertDetailComponent } from './components/adverts/advert-detail/advert-detail.component';
+import { SearchBarComponent } from './components/visitor/search-bar/search-bar.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'addCarModel', component: ModelcarAddComponent},
   { path: 'addGarage', component: AddGarageComponent},
   { path: 'addAdvert', component: AddAdvertComponent},
+  { path: 'searchBar', component: SearchBarComponent},
   { path: 'advertDetail/:id', component: AdvertDetailComponent}
 ];
 

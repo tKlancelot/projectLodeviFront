@@ -1,23 +1,30 @@
 <ng-container *ngIf="!isLoading">
     <app-menu-admin></app-menu-admin>
     <div class="">
-        <h5 class='bg-secondary text-light text-uppercase text-center m-0 p-1'>all brands</h5>
-        <table class="table text-uppercase">
-        <thead>
-            <tr>
-                <th>brand id</th>
-                <th>brand label</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of brands">
-            <td class="col-1">{{ item.id }}</td>
-            <td>{{ item.brandLabel }}</td>
-        </tr>
-        </tbody>
-    </table>
+        <h5 class="text-uppercase bg-light text-center m-0 p-0">all brands : <b class="magentaWrite">{{brands.length }}</b> in database</h5>
+        <table class="table table-sm text-uppercase">
+            <thead>
+                <tr>
+                    <th class='col-1'>brand id</th>
+                    <th>brand label</th>
+                    <th class='col-1'>brand logo</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr *ngFor="let item of brands">
+                    <td class='bg-light'>{{ item.id }}</td>
+                    <td>{{ item.brandLabel }}</td>
+                    <td class='text-center bg-light p-0'><img width='20%' src="../../../assets/{{ item.brandLogo }}" alt=""></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </ng-container>
 <ng-container *ngIf="isLoading">
-  <h4>Chargement en cours</h4>
+    <div class="bg-dark justify-content-center d-flex" style='height:100vh'>
+        <div class="align-self-center text-center">        
+            <h6 class="text-secondary">Loading</h6>
+            <div class="spinner-border text-secondary" role="status"></div>
+        </div>
+      </div>
 </ng-container>

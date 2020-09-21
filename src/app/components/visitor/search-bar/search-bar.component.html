@@ -1,0 +1,27 @@
+
+<div class="container">
+    <p>it works</p>
+    <select [(ngModel)] = 'brandSelected' (ngModelChange)='onBrandSelected($event)'>
+        <option *ngFor='let item of listOfBrands' [value]="item.id">{{item.brandLabel}}</option>
+    </select>
+
+<p>the selected brand is {{brandSelected}}</p>
+
+<p>get adverts for brand (using parameters)</p>
+</div>
+
+
+
+<div class="container">
+
+    <table class='table'>
+        <tr>
+            <th>id</th>
+            <th>référence</th>
+        </tr>
+        <tr *ngFor='let item of listOfAdverts'>
+            <td>{{item.id}}</td>
+            <td>{{item.reference}}</td>
+        </tr>
+    </table>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Advert } from 'src/app/models/advert';
 import { AdvertsService } from 'src/app/services/adverts.service';
@@ -13,6 +13,8 @@ export class AdvertDetailComponent implements OnInit {
   id : number;
   advert : Advert;
   isLoading : boolean;
+
+
   
   constructor(private advertService : AdvertsService, private route : ActivatedRoute) { }
 
@@ -24,5 +26,6 @@ export class AdvertDetailComponent implements OnInit {
     this.isLoading = false;
     });
   }
+
 
 }

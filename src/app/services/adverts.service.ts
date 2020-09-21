@@ -29,6 +29,13 @@ export class AdvertsService {
   }
 
 
+  deleteAdvert(id: number): Observable<Advert> {
+    return this.httpClient.delete<Advert>(this.apiUrl + '/' + id).pipe(retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+
   handleError(error) {
     let errorMessage = '';
     if ( error.error instanceof ErrorEvent ) {

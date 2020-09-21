@@ -1,8 +1,8 @@
 <ng-container *ngIf="!isLoading">
     <app-menu-admin></app-menu-admin>
     <div>
-        <h5 class="bg-secondary text-light text-uppercase text-center m-0 p-1">all garages : <b class="text-warning">{{garages.length }}</b></h5>
-        <table class="table text-uppercase">
+        <h5 class="text-uppercase text-center bg-light m-0 p-0">all garages : <b class="magentaWrite">{{garages.length }}</b> in database</h5>
+        <table class="table table-sm text-uppercase">
             <thead>
                 <tr>
                     <th>id garage</th>
@@ -29,5 +29,10 @@
     </div>
 </ng-container>
 <ng-container *ngIf="isLoading">
-  <h4>Chargement en cours</h4>
+    <div class="bg-dark justify-content-center d-flex" style='height:100vh'>
+        <div class="align-self-center text-center">        
+            <h6 class="text-secondary">Loading</h6>
+            <div class="spinner-border text-secondary" role="status"></div>
+        </div>
+      </div>
 </ng-container>

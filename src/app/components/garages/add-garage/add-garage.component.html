@@ -1,6 +1,6 @@
 <app-menu-garage-owner></app-menu-garage-owner>
-<div class="border bg-light text-secondary container col-10 p-0 mt-4">
-<h5 class="text-uppercase text-light text-center bg-secondary m-0 p-0">ajouter un garage</h5>
+<div class="bg-light text-secondary p-0">
+<h5 class="text-uppercase text-light text-center bg-primary m-0 p-0">ajouter un garage</h5>
 <form class="d-flex p-2" (submit)="submitGarage()" #garageForm ="ngForm">
     <div class="form-group col">
         <label for="garageName">nom du garage</label>
@@ -15,7 +15,7 @@
 
 
         <label for="siretNumber">n° de siret</label>
-        <input class='form-control col-4' type="text" maxlength="14" name="siretNumber" #garageForm='ngModel' required [(ngModel)]='garage.siretNumber'>
+        <input class='form-control col-4' type="text" minlength="14" maxlength="14" name="siretNumber" #garageForm='ngModel' required [(ngModel)]='garage.siretNumber'>
 
         <label for="user">utilisateur</label>
         <select class="custom-select" name="user" id="brand" required #garageForm ="ngModel" [(ngModel)]="garage.user">
@@ -25,7 +25,7 @@
         <!-- <label class="text-white" for="user"></label>
         <input class='form-control col-4' type="text" name="user" #garageForm='ngModel' required [(ngModel)]='garage.user.username'> -->
         
-        <div *ngIf='!garageForm.valid' class="text-danger"><span>merci de remplir tous les champs ci-dessus</span></div>
+        <div *ngIf='!garageForm.valid' class="text-primary"><span>merci de remplir tous les champs ci-dessus</span></div>
 
         <input class="mt-2"type="submit" value="ajouter" [disabled]='!garageForm.valid'>
     </div>

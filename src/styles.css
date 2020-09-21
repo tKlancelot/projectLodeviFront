@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap');
 
 *{
-    font-family: 'ubuntu';
+    font-family: 'Baloo Tamma 2';
 }
 
 /* links */
@@ -16,10 +17,10 @@ a{
     font-weight: initial;
 }
 
-a:hover{
-    text-decoration:none!important;
-    color:white!important;
-} 
+    a:hover{
+        text-decoration:none!important;
+        color:#c4c4cd!important;
+    } 
 
 
 table, ul, li, label, input, span, p{
@@ -39,3 +40,28 @@ table, ul, li, label, input, span, p{
     color: rgb(179, 255, 103);
     /* font-weight: bolder; */
 }
+
+/* .wallpaper{
+    background: url('assets/car_wallpaper.jpg');
+    background-size: contain;
+    background-position:30% 10em;
+    opacity: 0.9;
+} */
+
+.magenta{
+    background:#cf00cd;
+}
+
+.magentaWrite{
+    color:#cf00cd;
+}
+
+h6, h5{
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 0.1rem;
+}
+
+td a{
+    cursor:pointer;
+}
+

@@ -1,12 +1,11 @@
 <ng-container *ngIf="!isLoading">
     <app-menu-admin></app-menu-admin>
     <div class="rounded">
-        <h5 class='bg-secondary text-light text-uppercase text-center m-0 p-1'>all adverts</h5>
-        <table class="table text-uppercase">
+        <h5 class="text-uppercase text-center bg-light m-0 p-0">all adverts : <b class="magentaWrite">{{adverts.length }}</b> in database</h5>
+        <table class="table table-sm text-uppercase">
         <thead>
             <tr>
                 <th>référence</th>
-                <th>description</th>
                 <th>type d'essence</th>
                 <th>kilométrage</th>
                 <th>prix</th>
@@ -15,29 +14,37 @@
                 <th>année sortie</th>
                 <th>modèle</th><!-- (relationNiv1) -->
                 <th>marque</th><!-- (relationNiv1.relationNiv2) -->
+                <th>logo</th><!-- (relationNiv1.relationNiv2) -->
                 <th>garage</th><!-- (relationNiv1) -->
                 <th>utilisateur</th><!--(relationNiv1.relationNiv2)-->
+                <th>options</th>
             </tr>
         </thead>
         <tbody class="bg-light" *ngFor="let item of adverts">
-        <tr>
+        <tr class='align-self-center p-0 m-0'>
             <td>{{ item.reference }}</td>
-            <td class='col-2'>{{ item.description }}</td>
             <td>{{ item.fuelType }}</td>
             <td>{{ item.mileage }}</td>
             <td>{{ item.price }}</td>
-            <td class='col-1'><img width='20%' src="../../../assets/{{ item.picture }}" alt=""></td>
+            <td class='col-1'><img width='18%' src="../../../assets/{{ item.picture }}" alt=""></td>
             <td>{{ item.publicationDate | date }}</td>
             <td>{{ item.releaseYear | date }}</td>
-            <td class="border bg-primary text-white">{{ item.carModel.modelName }}</td>
-            <td class="border bg-danger text-white">{{ item.carModel.brand.brandLabel}}</td>
-            <td class="border bg-warning text-white">{{ item.garage.garageName }}</td>
-            <td class="border bg-info text-white">{{ item.garage.user.username }}</td>
+            <td class="bg-primary text-white">{{ item.carModel.modelName }}</td>
+            <td class="bg-danger text-white">{{ item.carModel.brand.brandLabel}}</td>
+            <td class='col-1 text-center p-0 m-0'><img width='19%' src="../../../assets/{{ item.carModel.brand.brandLogo }}" alt=""></td>
+            <td class="bg-warning text-white">{{ item.garage.garageName }}</td>
+            <td class="bg-info text-white">{{ item.garage.user.username }}</td>
+            <td class="text-center text-secondary"><a (click)='deleteThisAdvert(item.id)'><i class="fas fa-trash-alt"></i></a></td>
         </tr>
         </tbody>
     </table>
     </div>
 </ng-container>
 <ng-container *ngIf="isLoading">
-  <h4>Chargement en cours</h4>
+    <div class="bg-dark justify-content-center d-flex" style='height:100vh'>
+        <div class="align-self-center text-center">        
+            <h6 class="text-secondary">Loading</h6>
+            <div class="spinner-border text-secondary" role="status"></div>
+        </div>
+      </div>
 </ng-container>

@@ -1,6 +1,6 @@
 <app-menu-garage-owner></app-menu-garage-owner>
-<div class="border bg-light text-secondary container col-10 p-0 mt-4">
-    <h5 class="text-uppercase text-light text-center bg-primary m-0 p-0">ajouter une annonce</h5>
+<div class="bg-light text-secondary p-0">
+    <h5 class="text-uppercase text-light text-center bg-primary p-0">ajouter une annonce</h5>
     <form class="d-flex p-2" (submit)="submitAdvert()" #advertForm ="ngForm">
         <div class="form-group col">
             <label for="reference">réference</label>
@@ -16,20 +16,25 @@
 
 
             <label for="price">prix</label>
-            <input class='form-control' type="number" name="price" #advertForm='ngModel' required [(ngModel)]='advert.price'>
+            <input class='form-control col-2' type="number" name="price" #advertForm='ngModel' min="1000" required [(ngModel)]='advert.price'>
         </div>
         <div class="form-group col">
             <label for="mileage">kilométrage</label>
             <input class='form-control' type="number" name="mileage" #advertForm='ngModel' required [(ngModel)]='advert.mileage'>
+            <div class="d-flex justify-content-between">
+                <div class="col-5 p-0">
+                    <label for="publicationDate">date de publication</label>
+                    <input class='form-control' type="date" name="publicationDate" #advertForm='ngModel' required [(ngModel)]='advert.publicationDate'>
+                </div>
+                <div class="col-6 p-0">
+                    <label for="releaseYear">année de sortie</label>
+                    <input class='form-control' type="date" name="releaseYear" #advertForm='ngModel' required [(ngModel)]='advert.releaseYear'>
+                </div>    
 
-            <label for="publicationDate">date de publication</label>
-            <input class='form-control' type="date" name="publicationDate" #advertForm='ngModel' required [(ngModel)]='advert.publicationDate'>
-
-            <label for="releaseYear">année de sortie</label>
-            <input class='form-control' type="date" name="releaseYear" #advertForm='ngModel' required [(ngModel)]='advert.releaseYear'>
+            </div>
 
             <label for="picture">picture</label>
-            <input type="file" class='form-control' id='picture' name='picture' [(ngModel)]='advert.picture' #advertForm ='ngModel'/>
+            <input type="file" class='form-control p-1' id='picture' name='picture' [(ngModel)]='advert.picture' #advertForm ='ngModel'/>
     
             <label for="carModel">modèle de voiture</label>
             <select class="custom-select" name="carModel" id="carModel" required #advertForm ="ngModel" [(ngModel)]="advert.carModel">
@@ -44,7 +49,7 @@
             <!-- <label class="text-white" for="user"></label>
             <input class='form-control col-4' type="text" name="user" #garageForm='ngModel' required [(ngModel)]='garage.user.username'> -->
             
-            <div *ngIf='!advertForm.valid' class="text-danger"><span>merci de remplir tous les champs ci-dessus</span></div>
+            <div *ngIf='!advertForm.valid' class="text-primary"><span>merci de remplir tous les champs ci-dessus</span></div>
     
             <input class="mt-2"type="submit" value="ajouter" [disabled]='!advertForm.valid'>
         </div>

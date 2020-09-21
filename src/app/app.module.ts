@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdvertsComponent } from './components/adverts/adverts.component';
@@ -22,6 +22,8 @@ import { HomeComponent } from './components/home/home.component';
 import { VisitorComponent } from './components/visitor/visitor.component';
 import { AddAdvertComponent } from './components/adverts/add-advert/add-advert.component';
 import { AdvertDetailComponent } from './components/adverts/advert-detail/advert-detail.component';
+import { MenuVisitorComponent } from './components/visitor/menu-visitor/menu-visitor.component';
+import { SearchBarComponent } from './components/visitor/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { AdvertDetailComponent } from './components/adverts/advert-detail/advert
     HomeComponent,
     VisitorComponent,
     AddAdvertComponent,
-    AdvertDetailComponent
+    AdvertDetailComponent,
+    MenuVisitorComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,7 @@ import { AdvertDetailComponent } from './components/adverts/advert-detail/advert
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

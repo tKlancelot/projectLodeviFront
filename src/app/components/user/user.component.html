@@ -1,11 +1,11 @@
 <ng-container *ngIf="!isLoading">
     <app-menu-admin></app-menu-admin>
     <div class="">
-        <h5 class='bg-secondary text-light text-uppercase text-center m-0 p-1'>all users</h5>
-        <table class="table text-uppercase">
+        <h5 class="text-uppercase text-center bg-light m-0 p-0">all users : <b class="magentaWrite">{{users.length }}</b> in database</h5>
+        <table class="table table-sm text-uppercase">
         <thead>
             <tr>
-                <th>id</th>
+                <th class='col-1'>id</th>
                 <th>username</th>
                 <th>roles</th>
                 <th>password</th>
@@ -13,7 +13,7 @@
         </thead>
         <tbody>
         <tr *ngFor="let item of users">
-            <td>{{ item.id }}</td>
+            <td class='bg-light'>{{ item.id }}</td>
             <td>{{ item.username }}</td>
             <td>{{ item.roles }}</td>
             <td>{{ item.password }}</td>

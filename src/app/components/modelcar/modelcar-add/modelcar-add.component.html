@@ -1,25 +1,23 @@
 <app-menu-admin></app-menu-admin>
-<div class="bg-dark whiteSmoke">
-    <h5 class="text-uppercase text-light text-center bg-secondary m-0">ajouter un modèle</h5>
-  
-    <form class="p-2 container col-4" (submit)="submitModel()"   #modelForm ="ngForm">
+<div class="bg-light text-secondary p-0">
+    <h5 class="text-uppercase text-light text-center bg-secondary m-0 p-0">ajouter un modèle de voiture</h5>
+    <form class="p-2 container col-4" (submit)="submitModel()" #modelForm ="ngForm">
 
         <div class="form-group">
-        <label for="modelName">nom du modèle</label>
-        <input class="form-control" type="text" name="modelName" minlength='3' required #modelName ="ngModel" [(ngModel)]="carModel.modelName"/>
-        <div *ngIf="!modelName.valid" class='error'><span>le nom du modèle n'est pas valide !</span></div>
-        </div>
-    
-        <div class="form-group">
-        <label for="brand">Renseigner la marque de ce modèle</label>
-    
-        <select class="custom-select" name="brand" id="brand" required #brandLabel ="ngModel" [(ngModel)]="carModel.brand">
-            <option *ngFor="let item of brandList" [value]="item.id">{{item.brandLabel}}</option>
-        </select>
-
-        <div *ngIf="!brandLabel.valid" class='error'><span>la marque n'est pas valide !</span></div>
-        </div>
-        <input class="mt-2 btn btn-success" type="submit" value="ajouter" [disabled]='!modelForm.valid'>
+            <label for="modelName">nom du modèle</label>
+            <input class="form-control" type="text" name="modelName" minlength='2' required #modelName ="ngModel" [(ngModel)]="carModel.modelName"/>
+            <div *ngIf="!modelName.valid" class='text-primary'><span>le nom du modèle n'est pas valide !</span></div>
+            </div>
+        
+            <div class="form-group">
+                <label for="brand">Renseigner la marque de ce modèle</label>
+            
+                <select class="custom-select" name="brand" id="brand" required #brandLabel ="ngModel" [(ngModel)]="carModel.brand">
+                    <option *ngFor="let item of brandList" [value]="item.id">{{item.brandLabel}}</option>
+                </select>
+                <div *ngIf="!brandLabel.valid" class='text-primary'><span>la marque n'est pas valide !</span></div>
+            </div>
+        <input class="mt-2" type="submit" value="ajouter" [disabled]='!modelForm.valid'>
     </form>
 </div>
 <ng-container *ngIf="this.isLoading">Chargement en cours !</ng-container>
