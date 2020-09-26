@@ -23,7 +23,7 @@
         <tbody class="bg-light" *ngFor="let item of adverts">
         <tr class='align-self-center p-0 m-0'>
             <td>{{ item.reference }}</td>
-            <td>{{ item.fuelType }}</td>
+            <td>{{ item.fuelType.fuelTypeLabel }}</td>
             <td>{{ item.mileage }}</td>
             <td>{{ item.price }}</td>
             <td class='col-1'><img width='18%' src="../../../assets/{{ item.picture }}" alt=""></td>

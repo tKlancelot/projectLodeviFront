@@ -2,7 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/internal/operators';
+import { Advert } from '../models/advert';
 import { Brand } from '../models/brand';
+import { CarModel } from '../models/car-model';
 
 
 @Injectable({
@@ -13,17 +15,13 @@ export class SearchService {
   constructor(private http : HttpClient ) { }
 
   private apiUrl = 'http://localhost:8000/api/brands';
-  private apiUrl2 = 'http://localhost:8000/api/adverts';
+  private apiUrl2 = 'http://localhost:8000/api/car_models';
 
 
   getBrand(): Observable<Brand[]>{
       return this.http.get<Brand[]>(this.apiUrl).pipe(retry(1), catchError(this.handleError));
   }
 
-  getAdvertForSelectedBrandByParam(selectedBrandId:string): Observable<any>{
-    let param1 = new HttpParams().set('brand',selectedBrandId);
-    return this.http.get(this.apiUrl2,{params:param1});
-  }
 
   handleError(error) {
     let errorMessage = '';

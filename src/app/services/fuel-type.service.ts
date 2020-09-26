@@ -2,24 +2,25 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, retry} from 'rxjs/internal/operators';
-import { Garage } from '../models/garage';
+import { FuelType } from '../models/fuel-type';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class GaragesService {
-  private apiUrl = 'http://localhost:8000/api/garages';
+export class FuelTypeService {
+
+  private apiUrl = 'http://localhost:8000/api/fuel_types';
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getAll(): Observable<Garage[]>{
-    return this.httpClient.get<Garage[]>(this.apiUrl).pipe(retry(1), catchError(this.handleError));
+  add(fuelType : FuelType):Observable<FuelType>{
+    return this.httpClient.post<FuelType>(this.apiUrl, FuelType).pipe(retry(1),catchError(this.handleError)); 
   }
 
-  add(garage : Garage):Observable<Garage>{
-    return this.httpClient.post<Garage>(this.apiUrl, garage).pipe(retry(1),catchError(this.handleError)); 
+  getAll(): Observable<FuelType[]>{
+    return this.httpClient.get<FuelType[]>(this.apiUrl).pipe(retry(1), catchError(this.handleError));
   }
 
 

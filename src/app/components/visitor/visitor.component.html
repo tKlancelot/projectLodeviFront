@@ -1,10 +1,42 @@
 <app-menu-visitor></app-menu-visitor>
 <ng-container *ngIf="!isLoading">
+    <!-- <div class="form-group container d-flex">
+        <input class='form-control col m-1' type="text" placeholder='search by modelcar' [(ngModel)]='searchTerm'/> 
+        <input class='form-control col m-1' type="text" placeholder='search by brand name' [(ngModel)]='searchBrand'/>
+        <input class='form-control col m-1' type="text" placeholder='search exactly'/>
+    </div> -->
+    <div class="d-flex bg-dark justify-content-start p-2">
+        <div class="bg-secondary d-flex col m-0 p-0">
+            <div class='align-self-center text-light bg-secondary'>filters</div>
+        </div>
+        <div class="form-group d-flex text-uppercase flex-column m-1">
+            <!-- <label for="">model</label> -->
+            <select class='p-0 bg-light'[(ngModel)]='searchExactly'>
+                <option label='select a brand' [ngValue]="select">select a brand</option>
+                <option *ngFor='let item of listOfBrands'>{{item.brandLabel}}</option>
+            </select>
+        </div>
+        
+        <div class="form-group d-flex text-uppercase flex-column m-1">
+            <!-- <label for="">brand</label> -->
+            <select class='bg-light p-0' [(ngModel)]='searchTerm'>
+                <option label='select a model' [ngValue]="select">select a model</option>
+                <option *ngFor='let item of listOfCarModels'>{{item.modelName}}</option>
+            </select>
+        </div>
+        <div class="form-group d-flex text-uppercase flex-column m-1">
+            <!-- <label for="">brand</label> -->
+            <select class='bg-light p-0' [(ngModel)]='searchFuel'>
+                <option label='select a fuelType' [ngValue]="select">select a fuel type</option>
+                <option *ngFor='let item of listOfFuelTypes'>{{item.fuelTypeLabel}}</option>
+            </select>
+        </div>
+    </div>
     <h5 class="text-uppercase text-center bg-light m-0 rounded-0">toutes les annonces</h5>
     <div class="d-flex justify-content-around container col-10">
 
         <div class="row col-12 justify-content-around">
-            <div class="card p-0 m-4" *ngFor='let item of adverts' style="width:25rem">
+            <div class="card p-0 m-4" *ngFor='let item of adverts | advertFilter: searchTerm | advertFuelFilter: searchFuel | advertOtherFilter: searchExactly' style="width:25rem">
                 <div class="card-header d-flex flex-row-reverse justify-content-between m-0 p-1">
                     <div class="col-10 align-self-center">
                         <h6 class='pt-2 font-weight-normal text-capitalize'>{{ item.carModel.brand.brandLabel}} {{ item.carModel.modelName }}</h6>
@@ -23,6 +55,10 @@
                         <tr>
                             <th>garage</th>
                             <td>{{ item.garage.garageName }}</td>
+                        </tr>
+                        <tr>
+                            <th>fuelType</th>
+                            <td class='text-success'>{{ item.fuelType.fuelTypeLabel }}</td>
                         </tr>
                     </table>
                 </div>

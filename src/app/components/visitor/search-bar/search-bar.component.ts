@@ -22,10 +22,5 @@ export class SearchBarComponent implements OnInit {
     })
   }
 
-  onBrandSelected(selectedBrandId:any):void{
-    this.searchApi.getAdvertForSelectedBrandByParam(selectedBrandId).subscribe(data=>{
-      this.listOfAdverts = data['hydra:member'];
-    })
-  }
 }
 

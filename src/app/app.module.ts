@@ -24,6 +24,11 @@ import { AddAdvertComponent } from './components/adverts/add-advert/add-advert.c
 import { AdvertDetailComponent } from './components/adverts/advert-detail/advert-detail.component';
 import { MenuVisitorComponent } from './components/visitor/menu-visitor/menu-visitor.component';
 import { SearchBarComponent } from './components/visitor/search-bar/search-bar.component';
+import { AdvertFilterPipe } from './components/adverts/advert-filter.pipe';
+import { AdvertFuelFilterPipe } from './components/adverts/advertFuel-filter.pipe';
+import { AdvertOtherFilter } from './components/adverts/adverOther-filter.pipe';
+import { FuelTypeComponent } from './components/fuel-type/fuel-type.component';
+import { AdvertPricePipe } from './components/adverts/advert-price.pipe';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { SearchBarComponent } from './components/visitor/search-bar/search-bar.c
     AddAdvertComponent,
     AdvertDetailComponent,
     MenuVisitorComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    AdvertFilterPipe,
+    AdvertFuelFilterPipe,
+    AdvertOtherFilter,
+    FuelTypeComponent,
+    AdvertPricePipe
   ],
   imports: [
     BrowserModule,
@@ -55,7 +65,7 @@ import { SearchBarComponent } from './components/visitor/search-bar/search-bar.c
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [HttpClient],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
