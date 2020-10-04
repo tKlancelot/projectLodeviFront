@@ -23,7 +23,6 @@ export class AdvertsService {
     );
   }
 
-
   add(advert : Advert):Observable<Advert>{
     return this.httpClient.post<Advert>(this.apiUrl, advert).pipe(retry(1),catchError(this.handleError)); 
   }

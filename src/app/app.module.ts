@@ -29,6 +29,7 @@ import { AdvertFuelFilterPipe } from './components/adverts/advertFuel-filter.pip
 import { AdvertOtherFilter } from './components/adverts/adverOther-filter.pipe';
 import { FuelTypeComponent } from './components/fuel-type/fuel-type.component';
 import { AdvertPricePipe } from './components/adverts/advert-price.pipe';
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AdvertPricePipe } from './components/adverts/advert-price.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

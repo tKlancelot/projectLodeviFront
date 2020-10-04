@@ -1,0 +1,91 @@
+/* *{
+    padding:0;
+} */
+#container{
+    position: absolute;  
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:-4;
+    /* background: #fff; */
+    /* background: -moz-linear-gradient(to top,white, #ccc); */
+    margin-bottom:0!important;
+    padding:0!important;
+}
+
+.card{
+    background: #aaaaaa22;
+    
+}
+
+table, h6{
+    color:royalblue!important;
+    text-transform: uppercase;
+    
+}
+
+.th, th, td{ 
+    /* margin:0.5rem; */
+    padding:1rem;
+    /* border:1px solid red; */
+    width:50%;
+    border-top:none!important;
+}
+
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: dodgerblue;
+    /* border-radius:8px; */
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover{
+    background:royalblue!important;
+}
+
+#container2{
+    height:698px;
+    /* background: dimgrey; */
+    /* align-items: center; */
+    vertical-align:middle!important;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
+
+root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+}
+
+select{
+    border:none;
+    color:dodgerblue;
+    font-size:0.9rem;
+    background:#343a40!important;
+    margin:auto 1rem;
+}

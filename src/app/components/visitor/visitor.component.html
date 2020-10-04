@@ -1,69 +1,84 @@
 <app-menu-visitor></app-menu-visitor>
-<ng-container *ngIf="!isLoading">
-    <!-- <div class="form-group container d-flex">
-        <input class='form-control col m-1' type="text" placeholder='search by modelcar' [(ngModel)]='searchTerm'/> 
-        <input class='form-control col m-1' type="text" placeholder='search by brand name' [(ngModel)]='searchBrand'/>
-        <input class='form-control col m-1' type="text" placeholder='search exactly'/>
-    </div> -->
-    <div class="d-flex bg-dark justify-content-start p-2">
-        <div class="bg-secondary d-flex col m-0 p-0">
-            <div class='align-self-center text-light bg-secondary'>filters</div>
-        </div>
-        <div class="form-group d-flex text-uppercase flex-column m-1">
-            <!-- <label for="">model</label> -->
-            <select class='p-0 bg-light'[(ngModel)]='searchExactly'>
-                <option label='select a brand' [ngValue]="select">select a brand</option>
-                <option *ngFor='let item of listOfBrands'>{{item.brandLabel}}</option>
-            </select>
-        </div>
-        
-        <div class="form-group d-flex text-uppercase flex-column m-1">
-            <!-- <label for="">brand</label> -->
-            <select class='bg-light p-0' [(ngModel)]='searchTerm'>
-                <option label='select a model' [ngValue]="select">select a model</option>
-                <option *ngFor='let item of listOfCarModels'>{{item.modelName}}</option>
-            </select>
-        </div>
-        <div class="form-group d-flex text-uppercase flex-column m-1">
-            <!-- <label for="">brand</label> -->
-            <select class='bg-light p-0' [(ngModel)]='searchFuel'>
-                <option label='select a fuelType' [ngValue]="select">select a fuel type</option>
-                <option *ngFor='let item of listOfFuelTypes'>{{item.fuelTypeLabel}}</option>
-            </select>
-        </div>
-    </div>
-    <h5 class="text-uppercase text-center bg-light m-0 rounded-0">toutes les annonces</h5>
-    <div class="d-flex justify-content-around container col-10">
 
-        <div class="row col-12 justify-content-around">
-            <div class="card p-0 m-4" *ngFor='let item of adverts | advertFilter: searchTerm | advertFuelFilter: searchFuel | advertOtherFilter: searchExactly' style="width:25rem">
+
+<ng-container *ngIf="!isLoading">
+    <div id="container">
+    
+    </div>
+    <div class="d-flex bg-dark justify-content-start">
+
+
+        <nav class="navbar navbar-dark navbar-expand-lg d-flex text-capitalize text-center justify-content-center">
+            <div class="navbar-brand"><span>filtres</span></div>
+            <div class="navbar-nav mr-auto col-lg">                
+                <div class='d-flex col-lg m-1'>
+                    <button (click)="onClick()">test</button>
+                </div>
+                <div class="form-group col-lg-4 m-1" [(ngModel)] ='inputData1'>
+                    <input class='col' type="search" placeholder='rechercher un modèle ou une marque'>
+                </div>
+                <div class="form-group col-lg text-uppercase m-1">
+                    <!-- <label for="">model</label> -->
+                    <select class='p-0 bg-light'[(ngModel)]='searchExactly'>
+                        <option label='select a brand' [ngValue]="select">select a brand</option>
+                        <option *ngFor='let item of listOfBrands'>{{item.brandLabel}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-lg text-uppercase m-1">
+                    <!-- <label for="">brand</label> -->
+                    <select class='bg-light p-0' [(ngModel)]='searchTerm'>
+                        <option label='select a model' [ngValue]="select">select a model</option>
+                        <option *ngFor='let item of listOfCarModels'>{{item.modelName}}</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg text-uppercase m-1">
+                    <!-- <label for="">brand</label> -->
+                    <select class='bg-light p-0' [(ngModel)]='searchFuel'>
+                        <option label='select a fuelType' [ngValue]="select">select a fuel type</option>
+                        <option *ngFor='let item of listOfFuelTypes'>{{item.fuelTypeLabel}}</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+    <!-- <h5 class="text-uppercase text-center bg-light m-0 rounded-0">toutes les annonces</h5> -->
+    <div class="bg-dark d-flex justify-content-center">
+        <pagination-controls class='align-self-center m-0 p-0 my-pagination' (pageChange)="p = $event"></pagination-controls>
+    </div>
+    <div id='container2' class="d-flex justify-content-around container col-sm-12 col-md-12 col-lg-8">
+
+
+        <div class="row col-sm-12 col-md-12 col-lg-8 col-lg-12 justify-content-around">
+            <div class="align-self-center card p-0 m-4" *ngFor='let item of adverts | advertFilter: searchTerm | advertFuelFilter: searchFuel | advertOtherFilter: searchExactly | paginate: { itemsPerPage: 3, currentPage: p }' style="width:22rem">
                 <div class="card-header d-flex flex-row-reverse justify-content-between m-0 p-1">
                     <div class="col-10 align-self-center">
                         <h6 class='pt-2 font-weight-normal text-capitalize'>{{ item.carModel.brand.brandLabel}} {{ item.carModel.modelName }}</h6>
                     </div>
                     <div class="col-2 d-flex text-right p-0">
-                        <img style="width:50%"class="border rounded" src="../../../assets/{{item.carModel.brand.brandLogo}}" alt="Card image cap">
+                        <img style="width:76%"class="rounded" src="../../../assets/{{item.carModel.brand.brandLogo}}" alt="Card image cap">
                     </div>
                 </div>
-                <img style="width:100%;height:17rem"class="p-0" src="../../../assets/{{item.picture}}" alt="Card image cap">
+                <img style="width:100%;height:14rem"class="p-0" src="../../../assets/{{item.picture}}" alt="Card image cap">
                 <div class="card-body p-0">
                     <table class="table table-sm m-0">
                         <tr>
                             <th>référence</th>
                             <td>{{ item.reference}}</td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>garage</th>
                             <td>{{ item.garage.garageName }}</td>
                         </tr>
                         <tr>
                             <th>fuelType</th>
                             <td class='text-success'>{{ item.fuelType.fuelTypeLabel }}</td>
-                        </tr>
+                        </tr> -->
                     </table>
                 </div>
                 <div class="card-footer m-0 p-1 text-center">
-                    <a class="bg-secondary btn rounded text-light" routerLink="/advertDetail/{{item.id}} ">
+                    <a class="bg-primary btn rounded text-light" routerLink="/advertDetail/{{item.id}} ">
                         <i class="lead pt-1 fas fa-info-circle"></i>
                     </a>
                 </div>
@@ -80,3 +95,7 @@
         </div>
       </div>
 </ng-container>
+
+
+
+           
